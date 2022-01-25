@@ -63,12 +63,27 @@ let netSalary =getRandomInt() - Tax;
         }
         employeeInfo.render();
     }
+ let randomNum = function getRandomInt(min, max) {
+    min = Math.ceil(1000);
+max = Math.floor(9999);
+return Math.floor(Math.random()* (9999 - 1000) + 1000);
 
 
+ }
+ randomNum();
+ console.log( randomNum());
 
+ let infoForm = document.getElementById('infoForm');
+ infoForm.addEventListener('submit', addyourinfo);
 
-
-
-
+ function addyourinfo(event) {
     
-
+    let name = event.target.name.value;
+    let debartment = event.target.Debartment.value;
+    let leveL = event.target.leveL.value;
+    let imageUrl = event.targt.imageUrl.value;
+    let newinfo= new Employee (name,debartment,level,imageUrl);
+    console.log(newinfo);
+ }
+addyourinfo();
+console.log(addyourinfo);
