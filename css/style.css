@@ -1,0 +1,25 @@
+header{
+background-color: rgb(84, 94, 231);
+height: 15vh;
+margin-right: 50px;
+}
+header .nav {
+    float: right;
+margin-top: 39px;
+width: 1000px;
+
+}
+footer .debTable{
+    height: 500vh;
+}
+footer .socials{
+    height: 17vh;
+    background-color: blue;
+}
+
+
+footer .debTable{
+    background-color: rgb(255, 0, 0);
+}
+  
+

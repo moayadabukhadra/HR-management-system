@@ -12,9 +12,18 @@ function Employee(employeeId,fullName,department,level,imageurl,salary) {
     this.imageurl=imageurl;
     this.salary=salary;
     
-    
-    
    
+    Employee.allEmployee.push(this);
+}
+
+Employee.allEmployee=[];
+
+function render(){
+
+    for (i=0 ;i<Employee.allEmployee.length; i++){
+
+        
+    }
 }
 
 
@@ -83,7 +92,6 @@ return Math.floor(Math.random()* (9999 - 1000) + 1000);
     let leveL = event.target.leveL.value;
     let imageUrl = event.targt.imageUrl.value;
     let newinfo= new Employee (name,debartment,level,imageUrl);
-    console.log(newinfo);
  }
 addyourinfo();
 console.log(addyourinfo);
