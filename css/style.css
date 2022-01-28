@@ -1,0 +1,23 @@
+header{
+background-color: rgb(84, 94, 231);
+height: 15vh;
+margin-right: 50px;
+}
+header .nav {
+    float: right;
+margin-top: 39px;
+width: 1000px;
+
+}
+
+footer .socials{
+    
+    background-color: blue;
+}
+
+
+footer{
+    height: 150vh;
+}
+   
+
