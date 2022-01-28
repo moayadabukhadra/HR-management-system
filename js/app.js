@@ -13,8 +13,10 @@ function Employee(employeeId,fullName,department,level,imageurl) {
  
     this.salary=this.salary()*0.925;
 
+Employee.allEmployees.push(this);
 
 }
+Employee.allEmployees=[];
 
 Employee.prototype.salary = function(){
 if (this.level=="Senior"){
@@ -33,10 +35,37 @@ else if (this.level=="Mid-senior"){
 
 }
 
-
   Employee.prototype.render = function(){
-   
-    document.write(`<div style="background-color: rgb(2, 70, 2); width: 200px; flex: content;"> <img src="${this.imageurl}" alt="${this.fullName}" style="height: 20vh; background-color: green; border-radius: 500px;"> <p>Name:${this.fullName}</p> <p> ID:${this.employeeId} <br> Department:${this.department} Level:${this.level} <br> salary:${this.salary}  </p> </div>  `)
+
+    let formEl = document.getElementById('form');
+    let divEl=document.createElement('div');
+    formEl.appendChild(divEl);
+
+    let imgEl = document.createElement('img');
+    divEl.appendChild(imgEl);
+    imgEl.setAttribute('src', this.imageurl)
+
+  imgEl.setAttribute('alt',this.fullName);
+  imgEl.style.height="20VH"
+
+  let nameEl= document.createElement('p')
+  divEl.appendChild(nameEl);
+  let debEl = document.createElement('p');
+  divEl.appendChild(debEl);
+
+let salEl=document.createElement('p');
+divEl.appendChild(salEl);
+
+
+  nameEl.textContent= `Name:${this.fullName}         ID:${this.employeeId}`
+debEl.textContent=`Department:${this.department}     level:${this.level}`
+salEl.textContent=`salary:${this.salary}`
+divEl.style.backgroundColor="green";
+imgEl.style.borderRadius="400px";
+divEl.style.width="35vh"
+
+    
+
    
     
   }
@@ -48,46 +77,52 @@ else if (this.level=="Mid-senior"){
   const omar =new Employee ("1004","Omar Zaid","Development","Senior","images/Omar.jpg");
   const rana =new Employee ("1005","Rana Saleh","Development","Junior","images/Rana.jpg");
   const hadi =new Employee ("1006","Hadi Ahmad","Finance","Mid-senior","images/Hadi.jpg");
-let allEmployee=[ghazi,lana,tamara,safi,omar,rana,hadi]
+  let allEmployee=[ghazi,lana,tamara,safi,omar,rana,hadi]
   for (let i =0 ;i<allEmployee.length ; i++){
 
     allEmployee[i].render();
 
-
+  
   }
   function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (9999 - 1000 ) ) + 1000;
+    return Math.floor(Math.random() * (9999 - 1000 )+1 ) + 1000;
   }
   console.log(getRndInteger());
 
-  
 
 
 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- let infoForm = document.getElementById('infoForm').addEventListener('submit', addyourinfo);
+  let infoForm = document.getElementById('infoForm').addEventListener('submit', addyourinfo);
 
  function addyourinfo(event) {
+    
     event.preventDefault();
-    let fullName = event.target.namE.value;
-    let deb = event.target.deb.value;
-    let lEvel = event.target.lEvel.value;
+    let fullName = event.target.name.value;
+    let department = event.target.deb.value;
+    let level = event.target.level.value;
     let imageurl = event.target.imagEurl.value;
-   
+let salary =this.salary
+    const newEmployee = new Employee(getRndInteger(),fullName,department,level,imageurl,salary);
+    newEmployee.render();
+    settingitem();
  }
  
+ function settingitem(){
+
+    let data=JSON.stringify(Employee.allEmployees);
+    localStorage.setItem('employees',data)
+ }
+ 
+ function gettingitem(){
+     let gotData=localStorage.getItem('employees');
+     
+     let parseData = JSON.parse(gotData);
+     if (parseData !==null){
+         Employee.allEmployees=parseData;
+        
+     }
+   
+     
+ }
+ 
+ gettingitem();
