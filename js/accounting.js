@@ -23,10 +23,10 @@ if (deb[i]= "Administration" || "Finance") {
  
 
  
-totalSalary[i]=getRandomInt()*2
+totalSalary[i]=getRandomInt()
 
   
-    avgSalary[i]=((getRandomInt())/2);
+    avgSalary[i]=getRandomInt()/2;
 
 
 
@@ -35,22 +35,22 @@ totalSalary[i]=getRandomInt()*2
     }
 else if (deb[i] = "Marketing"){
 
-    totalSalary[i]=getRandomInt()*1[i]
+    totalSalary[i]=getRandomInt()[i]
 
  avgSalary[i]=getRandomInt()[i];
 
 
 }
-else if (deb[i]="Development"){
+else (deb[i]="Development")
 
   
-    totalSalary[i]=getRandomInt()*2
+    totalSalary[i]=getRandomInt()
 
-     avgSalary[i]=(getRandomInt()[i]/2);
+     avgSalary[i]=getRandomInt()/2;
     
 }
 
-}  
+
 
 console.log(avgSalary);
 console.log(totalSalary);
@@ -79,7 +79,7 @@ let trEl = document.createElement('tr');
   trEl.appendChild(th3EL);
   th3EL.textContent= "Total salary"
 
-  
+   deb =["Administration","Finance","Marketing","Development"];
 
  for(let i=0; i<4 ;i++){
 
@@ -104,15 +104,15 @@ let trEl = document.createElement('tr');
     td3EL.textContent= totalSalary[i];
  }
 
-    let sum=0;
+    let sum2=0;
 
-    for (let index=0 ; index <adm.length ; index++ ){
-   sum = sum + adm[index];
+    for (let index=0 ; index < totalSalary.length ; index++ ){
+   sum2 = sum2 +  totalSalary[index];
     
    
 }
 
-console.log(sum);
+console.log(sum2);
 
 let sum1=0;
 
@@ -123,9 +123,13 @@ sum1 = sum1 + avgSalary[index];
 }
 
 console.log(sum1);
+let sum=0
 
+for (let index=0 ; index <adm.length ; index++ ){
+    sum = sum + adm[index];
 
-
+}
+console.log(sum);
  
  let table1EL = document.createElement('table');
  newTable.appendChild(table1EL);
@@ -146,6 +150,17 @@ console.log(sum1);
   tr3El.appendChild(th6EL);
   th6EL.textContent= "T salary"
 
-  
 
-   
+  let total = [sum , sum1,sum2];
+
+  let tr4EL= document.createElement('tr');
+  table1EL.appendChild(tr4EL);
+ 
+for(let i=0;i<total.length;i++){
+    let td4EL = document.createElement('td');
+    tr4EL.appendChild(td4EL);
+    td4EL.textContent= total[i];
+}
+document.getElementById("debTable").style.color= "blue";
+document.getElementById("newTable").style.color= "red";
+document.getElementById("css").style.borderSpacing="20px";

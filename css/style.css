@@ -9,17 +9,15 @@ margin-top: 39px;
 width: 1000px;
 
 }
-footer .debTable{
-    height: 500vh;
-}
+
 footer .socials{
-    height: 17vh;
+    
     background-color: blue;
 }
 
 
-footer .debTable{
-    background-color: rgb(255, 0, 0);
+footer{
+    height: 150vh;
 }
-  
+   
 
